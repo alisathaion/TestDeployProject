@@ -40,10 +40,11 @@ steps:
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'myWebsiteName'
-- task: AzureWebApp@1
+
+- task: AzureRmWebAppDeployment@4
   inputs:
+    ConnectionType: 'AzureRM'
     azureSubscription: 'Free Trial Subscription (082b077e-aa1a-4ccb-a335-f2e67201b83b)'
     appType: 'webApp'
-    appName: 'netcore6testdeploy'
-    package: '$(System.DefaultWorkingDirectory)/myWebsiteName/TestDeployProject.zip'
-    deploymentMethod: 'auto'
+    WebAppName: 'netcore6testdeploy'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/myWebsiteName/TestDeployProject.zip'
