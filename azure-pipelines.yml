@@ -46,7 +46,7 @@ steps:
     targetType: inline
     script: |
       cd '$(Build.ArtifactStagingDirectory)'
-      ls -la
+      ls -Recurse
 
 - task: AzureRmWebAppDeployment@4
   inputs:
