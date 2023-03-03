@@ -45,8 +45,9 @@ steps:
   inputs:
     targetType: inline
     script: |
-     ls -la
-     
+      cd '$(Build.ArtifactStagingDirectory)'
+      ls -la
+
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
